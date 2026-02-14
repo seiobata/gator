@@ -44,3 +44,11 @@ func handlerRegister(s *state, cmd command) error {
 	fmt.Printf("User %v was created on %v\n", user.Name, user.CreatedAt)
 	return nil
 }
+
+func handlerResetUsers(s *state, cmd command) error {
+	if err := s.db.DeleteAllUsers(context.Background()); err != nil {
+		return fmt.Errorf("problem resetting Users table: %v", err)
+	}
+	fmt.Println("Database successfully reset")
+	return nil
+}
