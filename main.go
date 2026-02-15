@@ -37,6 +37,7 @@ func main() {
 	cmds.register("login", handlerLogin)
 	cmds.register("register", handlerRegister)
 	cmds.register("reset", handlerResetUsers)
+	cmds.register("users", handlerGetAllUsers)
 
 	words := os.Args
 	if len(words) < 2 {
